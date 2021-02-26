@@ -35,6 +35,8 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        // use A & D to move the circle left or right
         if (Input.GetKey(KeyCode.A))
         {
             rb2D.AddForce(Vector2.left * forceAmount);
@@ -44,6 +46,7 @@ public class PlayerControl : MonoBehaviour
             rb2D.AddForce(Vector2.right * forceAmount);
         }
 
+        // press SPACE to shoot a bullet upward
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GameManager.instance.Attacks++;

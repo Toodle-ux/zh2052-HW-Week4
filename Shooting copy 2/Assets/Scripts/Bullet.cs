@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.DeleteKey("a");
+        
     }
 
     // Update is called once per frame
@@ -22,14 +22,15 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // if the bullet touches the enemy, the game enters the next level
         GameManager.instance.currentLevel++;
+        
+        SceneManager.LoadScene(GameManager.instance.currentLevel);
+        
+        // the game ends at level 3
         if (GameManager.instance.currentLevel == 3)
         {
-            if (GameManager.instance.Attacks < GameManager.instance.LeastAttacks)
-            {
-                GameManager.instance.LeastAttacks = GameManager.instance.Attacks;
-            }
+            GameManager.instance.isGame = false;
         }
-        SceneManager.LoadScene(GameManager.instance.currentLevel);
     }
 }

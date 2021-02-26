@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // the speed of the enemy is increased in each level
+        
         enemySpeed = 2 + GameManager.instance.currentLevel * 3;
         
         if (transform.position.x > 10)
